@@ -13,12 +13,14 @@ import java.util.Optional;
 @Service
 public class BaseImportService {
 
+    private static final int MSGSIZE = 4; // 最大步骤数
+
     @Transactional(rollbackFor=Exception.class)
     public String importExcel(ImportType type, double amount){
         Optional<ImportType> typeOpt = Optional.ofNullable(type);
 
         if (typeOpt.isPresent()) {
-            List<BaseImportBean> arrBib = new ArrayList<>(4);
+            List<BaseImportBean> arrBib = new ArrayList<>(MSGSIZE);
 
             ImportService sv = SpringContext.getBean(ImportService.class); // 从应用上下文中获取PayService对象
 
