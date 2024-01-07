@@ -1,4 +1,4 @@
-package com.shaoqf.strategy.base;
+package com.shaoqf.strategy.bean.base;
 
 import lombok.Data;
 

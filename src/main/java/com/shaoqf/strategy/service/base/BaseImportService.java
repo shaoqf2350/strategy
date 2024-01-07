@@ -1,10 +1,9 @@
 package com.shaoqf.strategy.service.base;
 
 import com.alibaba.fastjson.JSONArray;
-import com.shaoqf.strategy.base.BaseImportBean;
+import com.shaoqf.strategy.bean.base.BaseImportBean;
 import com.shaoqf.strategy.base.ImportStrategy;
 import com.shaoqf.strategy.base.SpringContext;
-import com.shaoqf.strategy.service.base.ImportService;
 import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
