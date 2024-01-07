@@ -24,6 +24,6 @@ public enum ImportType {
                 return payType;
             }
         }
-        return ImportType.JOURNAL; // 默认
+        return null;
     }
 }
