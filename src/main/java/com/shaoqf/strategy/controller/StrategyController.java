@@ -1,5 +1,6 @@
 package com.shaoqf.strategy.controller;
 
+import com.shaoqf.strategy.demos.web.BasicController;
 import com.shaoqf.strategy.service.base.PayService;
 import com.shaoqf.strategy.base.PayStrategy;
 import com.shaoqf.strategy.utils.enums.PayType;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/strategy")
-public class StrategyController {
+public class StrategyController extends BasicController {
 
     // 支付方式(ALIPAY-支付宝; WECHAT-微信支付; PAYPAL-宝付)
     @PostMapping("/pay")
