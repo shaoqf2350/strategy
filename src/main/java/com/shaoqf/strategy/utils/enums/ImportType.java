@@ -1,8 +1,9 @@
 package com.shaoqf.strategy.utils.enums;
 public enum ImportType {
-    VOUCHER("VOUCHER","凭证导出"),
-    JOURNAL("JOURNAL","日记账导出"),
-    INVOICE("INVOICE","发票导出");
+    VOUCHER("VOUCHER","凭证导入"),
+    JOURNAL("JOURNAL","日记账导入"),
+    INVOICE("INVOICE","发票导入"),
+    OLDACCOUNTS("OLDACCOUNTS","旧账导入"), ;
 
     private String type;
     private String desc;

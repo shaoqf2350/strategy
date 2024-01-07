@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/import")
@@ -16,14 +17,13 @@ public class ImportExcelController {
     @Resource
     BaseImportService baseImportService;
 
-    public static final String SUCCESS = "success";
-
     // 导入文件
     @PostMapping("/excel")
     public String excel(@RequestParam("type") ImportType type, @RequestParam("amount") double amount) {
-
-        baseImportService.importExcel(type, amount);
-
-        return SUCCESS;
+        if (null == type) {
+            return "ImportType is Null!";
+        } else {
+            return baseImportService.importExcel(type, amount);
+        }
     }
 }

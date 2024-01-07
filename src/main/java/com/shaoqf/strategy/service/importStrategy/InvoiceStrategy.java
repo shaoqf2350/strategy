@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 public class InvoiceStrategy implements ImportStrategy {
     @Override
     public String readFile(double amount) {
-        return "readFile ".concat(ImportType.INVOICE.getDesc()).concat(", 支付").concat(String.valueOf(amount)).concat("元");
+        return ImportType.INVOICE.getDesc().concat(", 读取数据:").concat(String.valueOf(amount));
     }
 
     @Override
     public String handleData(double amount) {
-        return "handleData ".concat(ImportType.INVOICE.getDesc()).concat(", 支付").concat(String.valueOf(amount)).concat("元");
+        return ImportType.INVOICE.getDesc().concat(", 处理数据:").concat(String.valueOf(amount));
     }
 
     @Override
     public String convert(double amount) {
-        return "convert ".concat(ImportType.INVOICE.getDesc()).concat(", 支付").concat(String.valueOf(amount)).concat("元");
+        return ImportType.INVOICE.getDesc().concat(", 转换Bean到通用Bean:").concat(String.valueOf(amount));
     }
 
     @Override
     public String save(double amount) {
-        return "save ".concat(ImportType.INVOICE.getDesc()).concat(", 支付").concat(String.valueOf(amount)).concat("元");
+        return ImportType.INVOICE.getDesc().concat(", 保存数据库:").concat(String.valueOf(amount));
     }
 }
