@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 public class ImportExcelController {
 
     @Resource
-    BaseImportService service;
+    BaseImportService baseImportService;
 
     public static final String SUCCESS = "success";
 
@@ -22,7 +22,7 @@ public class ImportExcelController {
     @PostMapping("/excel")
     public String excel(@RequestParam("type") ImportType type, @RequestParam("amount") double amount) {
 
-        service.importExcel(type, amount);
+        baseImportService.importExcel(type, amount);
 
         return SUCCESS;
     }
