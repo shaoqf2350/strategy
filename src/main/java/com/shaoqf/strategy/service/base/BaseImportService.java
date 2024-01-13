@@ -53,7 +53,7 @@ public class BaseImportService {
             return JSONArray.toJSONString(arrBib);
         }
 
-        return "ImportType is Null!";
+        return "";
     }
 
 }
