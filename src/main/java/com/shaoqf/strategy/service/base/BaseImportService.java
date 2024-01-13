@@ -45,6 +45,7 @@ public class BaseImportService {
                 arrBib.add(new BaseImportBean("save", res4));
 
                 arrBib.forEach(bib -> System.out.println(bib.getName().concat(": ").concat(bib.getMsg())));
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
