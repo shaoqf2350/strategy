@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 @Primary
 @Service("INVOICE")
 public class InvoiceStrategy implements ImportStrategy {
+
+    @Override
+    public String checkFormat(double amount) {
+        return ImportType.INVOICE.getDesc().concat(", 验证数据格式及表头:").concat(String.valueOf(amount));
+    }
+
     @Override
     public String readFile(double amount) {
         return ImportType.INVOICE.getDesc().concat(", 读取数据:").concat(String.valueOf(amount));
@@ -24,7 +30,7 @@ public class InvoiceStrategy implements ImportStrategy {
     }
 
     @Override
-    public String save(double amount) {
+    public String saveDB(double amount) {
         return ImportType.INVOICE.getDesc().concat(", 保存数据库:").concat(String.valueOf(amount));
     }
 }
