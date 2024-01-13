@@ -31,16 +31,20 @@ public class BaseImportService {
             sv.setStrategy(strategy); // 切换到对应的策略对象
 
             try {
-                String res1 = sv.readFile(amount);//调用对应的服务方法，执行策略对象的算法
-                String res2 = sv.handleData(amount);
-                String res3 = sv.convert(amount);
-                String res4 = sv.save(amount);
+                //调用对应的服务方法，执行策略对象的算法
+                String res0 = sv.checkFormat(amount);//校验格式
+                String res1 = sv.readFile(amount);//读取excel数据
+                String res2 = sv.handleData(amount);//数据处理逻辑
+                String res3 = sv.convert(amount);//对象封装成统一对象
+                String res4 = sv.saveDB(amount);//数据库操作
 
+                BaseImportBean bib0 = new BaseImportBean("checkFormat", res0);
                 BaseImportBean bib1 = new BaseImportBean("readFile", res1);
                 BaseImportBean bib2 = new BaseImportBean("handleData", res2);
                 BaseImportBean bib3 = new BaseImportBean("convert", res3);
                 BaseImportBean bib4 = new BaseImportBean("save", res4);
 
+                arrBib.add(bib0);
                 arrBib.add(bib1);
                 arrBib.add(bib2);
                 arrBib.add(bib3);

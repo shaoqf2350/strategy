@@ -12,6 +12,9 @@ public class ImportService {
         this.strategy = strategy;
     }
 
+    public String checkFormat(double amount){
+        return strategy.checkFormat(amount);
+    }
     public String readFile(double amount){
         return strategy.readFile(amount);
     }
@@ -24,7 +27,7 @@ public class ImportService {
         return strategy.convert(amount);
     }
 
-    public String save(double amount){
-        return strategy.save(amount);
+    public String saveDB(double amount){
+        return strategy.saveDB(amount);
     }
 }
