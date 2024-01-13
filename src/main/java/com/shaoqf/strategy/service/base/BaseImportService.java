@@ -3,6 +3,9 @@ package com.shaoqf.strategy.service.base;
 import com.shaoqf.strategy.base.ImportStrategy;
 import org.springframework.stereotype.Service;
 
+/**
+ * 策略所属服务(由该服务调用具体策略中的方法)
+ */
 @Service
 public class BaseImportService {
 
