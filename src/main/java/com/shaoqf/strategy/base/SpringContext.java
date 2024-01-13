@@ -1,7 +1,6 @@
 package com.shaoqf.strategy.base;
 
 import com.shaoqf.strategy.utils.enums.ImportType;
-import com.shaoqf.strategy.utils.enums.PayType;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,10 +19,6 @@ public class SpringContext implements ApplicationContextAware {
 
     public static ApplicationContext getApplicationcontext() {
         return applicationcontext;
-    }
-
-    public static Object getPayBean(PayType pt){
-        return getApplicationcontext().getBean(pt.getType());
     }
 
     public static Object getImportBean(ImportType pt){

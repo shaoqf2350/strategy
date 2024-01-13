@@ -5,6 +5,9 @@ import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+/**
+ * 发票导入
+ */
 @Primary
 @Service("INVOICE")
 public class InvoiceStrategy implements ImportStrategy {

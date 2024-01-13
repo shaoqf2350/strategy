@@ -5,6 +5,9 @@ import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+/**
+ * 凭证导入
+ */
 @Primary
 @Service("VOUCHER")
 public class VoucherStrategy implements ImportStrategy {

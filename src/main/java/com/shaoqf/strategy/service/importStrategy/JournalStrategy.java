@@ -5,6 +5,9 @@ import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+/**
+ * 日记账导入
+ */
 @Primary
 @Service("JOURNAL")
 public class JournalStrategy implements ImportStrategy {
