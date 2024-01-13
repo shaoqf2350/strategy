@@ -15,14 +15,14 @@ import java.util.Optional;
 @Service
 public class BaseImportService {
 
-    private static final int MSGSIZE = 4; // 最大步骤数
+    private static final Byte MAXSIZE = 5; // 最大步骤数-128到127之间
 
     @Transactional(rollbackFor=Exception.class)
     public String importExcel(ImportType type, double amount){
         Optional<ImportType> typeOpt = Optional.ofNullable(type);
 
         if (typeOpt.isPresent()) {
-            List<BaseImportBean> arrBib = new ArrayList<>(MSGSIZE);
+            List<BaseImportBean> arrBib = new ArrayList<>(MAXSIZE);
 
             ImportService sv = SpringContext.getBean(ImportService.class); // 从应用上下文中获取PayService对象
 
@@ -38,17 +38,13 @@ public class BaseImportService {
                 String res3 = sv.convert(amount);//对象封装成统一对象
                 String res4 = sv.saveDB(amount);//数据库操作
 
-                BaseImportBean bib0 = new BaseImportBean("checkFormat", res0);
-                BaseImportBean bib1 = new BaseImportBean("readFile", res1);
-                BaseImportBean bib2 = new BaseImportBean("handleData", res2);
-                BaseImportBean bib3 = new BaseImportBean("convert", res3);
-                BaseImportBean bib4 = new BaseImportBean("save", res4);
+                arrBib.add(new BaseImportBean("checkFormat", res0));
+                arrBib.add(new BaseImportBean("readFile", res1));
+                arrBib.add(new BaseImportBean("handleData", res2));
+                arrBib.add(new BaseImportBean("convert", res3));
+                arrBib.add(new BaseImportBean("save", res4));
 
-                arrBib.add(bib0);
-                arrBib.add(bib1);
-                arrBib.add(bib2);
-                arrBib.add(bib3);
-                arrBib.add(bib4);
+                arrBib.forEach(bib -> System.out.println(bib.getName().concat(": ").concat(bib.getMsg())));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
