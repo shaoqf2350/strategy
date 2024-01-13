@@ -2,6 +2,7 @@ package com.shaoqf.strategy.controller;
 
 import com.shaoqf.strategy.demos.web.BasicController;
 import com.shaoqf.strategy.service.base.BaseImportService;
+import com.shaoqf.strategy.service.base.ImportService;
 import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import javax.annotation.Resource;
 public class ImportExcelController extends BasicController {
 
     @Resource
-    BaseImportService baseImportService;
+    ImportService importService;
 
     // 导入文件
     @PostMapping("/files")
@@ -23,7 +24,7 @@ public class ImportExcelController extends BasicController {
         if (null == type) {
             return "ImportType is Null!";
         } else {
-            return baseImportService.importExcel(type, amount);
+            return importService.importExcel(type, amount);
         }
     }
 }
