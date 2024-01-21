@@ -4,6 +4,8 @@ import com.shaoqf.strategy.base.ImportStrategy;
 import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 凭证导入
@@ -33,6 +35,7 @@ public class VoucherStrategy implements ImportStrategy {
     }
 
     @Override
+    @Transactional(rollbackFor=Exception.class)
     public String saveDB(double amount) {
         return ImportType.VOUCHER.getDesc().concat(", 保存数据库:").concat(String.valueOf(amount));
     }

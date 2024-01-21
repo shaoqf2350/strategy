@@ -4,6 +4,7 @@ import com.shaoqf.strategy.base.ImportStrategy;
 import com.shaoqf.strategy.utils.enums.ImportType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 旧账导入_柠檬云_云会计_科目
@@ -33,6 +34,7 @@ public class OaNmyYunkuaijiSubjectStrategy implements ImportStrategy {
     }
 
     @Override
+    @Transactional(rollbackFor=Exception.class)
     public String saveDB(double amount) {
         return ImportType.OA_NMY_YUNKUAIJI_SUBJECT.getDesc().concat(", 保存数据库:").concat(String.valueOf(amount));
     }

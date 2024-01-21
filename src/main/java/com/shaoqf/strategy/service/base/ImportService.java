@@ -5,6 +5,7 @@ import com.shaoqf.strategy.bean.base.BaseImportBean;
 import com.shaoqf.strategy.base.ImportStrategy;
 import com.shaoqf.strategy.base.SpringContext;
 import com.shaoqf.strategy.utils.enums.ImportType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,11 +14,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class ImportService {
 
     private static final Byte MAXSIZE = 5; // 最大步骤数-128到127之间
 
-    @Transactional(rollbackFor=Exception.class)
     public String importExcel(ImportType type, double amount){
         Optional<ImportType> typeOpt = Optional.ofNullable(type);
 
@@ -44,10 +45,11 @@ public class ImportService {
                 arrBib.add(new BaseImportBean("convert", res3));
                 arrBib.add(new BaseImportBean("save", res4));
 
-                arrBib.forEach(bib -> System.out.println(bib.getName().concat(": ").concat(bib.getMsg())));
+                arrBib.forEach(bib -> log.info(bib.getName().concat(": ").concat(bib.getMsg())));
 
             } catch (Exception ex) {
                 ex.printStackTrace();
+                log.error(ex.getMessage());
             }
 
             return JSONArray.toJSONString(arrBib);
