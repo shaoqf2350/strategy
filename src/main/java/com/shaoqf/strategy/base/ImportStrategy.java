@@ -11,6 +11,6 @@ public interface ImportStrategy {
     public String readFile(double amount);
     public String handleData(double amount);
     public String convert(double amount);
-    public String saveDB(double amount);
+    public String saveBathToDB(double amount);
 
 }

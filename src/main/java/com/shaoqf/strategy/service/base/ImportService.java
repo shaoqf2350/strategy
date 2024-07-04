@@ -33,11 +33,12 @@ public class ImportService {
 
             try {
                 //调用对应的服务方法，执行策略对象的算法
-                String res0 = sv.checkFormat(amount);//校验文件格式及表头
-                String res1 = sv.readFile(amount);//读取excel数据
+                String res0 = sv.readFile(amount);//读取excel数据
+                String res1 = sv.checkFormat(amount);//校验文件格式及表头
                 String res2 = sv.handleData(amount);//数据处理逻辑
                 String res3 = sv.convert(amount);//对象封装成统一对象
-                String res4 = sv.saveDB(amount);//数据库操作
+                String res4 = sv.saveBathToDB(amount);//入库操作
+//                String res5 = sv.after(amount);//事后操作
 
                 arrBib.add(new BaseImportBean("checkFormat", res0));
                 arrBib.add(new BaseImportBean("readFile", res1));

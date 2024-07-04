@@ -45,7 +45,7 @@ public class InvoiceStrategy implements ImportStrategy {
 
     @Override
     @Transactional(rollbackFor=Exception.class)
-    public String saveDB(double amount) {
+    public String saveBathToDB(double amount) {
         String str = ImportType.INVOICE.getDesc().concat(", 保存数据库:").concat(String.valueOf(amount));
         log.info(str);
         return str;

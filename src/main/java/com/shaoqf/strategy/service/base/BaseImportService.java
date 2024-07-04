@@ -15,22 +15,19 @@ public class BaseImportService {
         this.strategy = strategy;
     }
 
-    public String checkFormat(double amount){
-        return strategy.checkFormat(amount);
-    }
     public String readFile(double amount){
         return strategy.readFile(amount);
     }
-
+    public String checkFormat(double amount){
+        return strategy.checkFormat(amount);
+    }
     public String handleData(double amount){
         return strategy.handleData(amount);
     }
-
     public String convert(double amount){
         return strategy.convert(amount);
     }
-
-    public String saveDB(double amount){
-        return strategy.saveDB(amount);
+    public String saveBathToDB(double amount){
+        return strategy.saveBathToDB(amount);
     }
 }
