@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.shaoqf.strategy.demos.web;
+package com.shaoqf.strategy.bean;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.shaoqf.strategy.demos.web;
+package com.shaoqf.strategy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

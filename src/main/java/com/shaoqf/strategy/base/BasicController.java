@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.shaoqf.strategy.demos.web;
+package com.shaoqf.strategy.base;
 
+import com.shaoqf.strategy.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
